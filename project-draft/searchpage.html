@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Aldijana Sabanovic, Anika Yechuri, Sanmathi Prabakar">
+    <link rel="icon" href="img/favicon.ico">
+    <meta name="description" content="This page is the search page">
+    <title>Search Page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <nav>
+        <div class="nav-left">
+            <h1>ScentSeeker</h1>
+        </div>
+        <ul>
+        <li><a href="home.html">Home</a></li>
+          <li><a href="searchpage.html">Search</a></li>
+          <li><a href="quiz.html">Quiz</a></li>  <!--same as quiz page-->
+          <li><a href="quizresults.html">Quiz Result</a></li>
+          <li><a href="yourlistpage.html">My List</a></li>
+          <li><a href="filterpage.html">Filter</a></li>
+          <li><a href="perfumeinfopage.html">Perfume </a></li>
+        </ul>
+    </nav>
+    
+
+</head>
+<body class="home-body">
+
+
+    <div class="search-container">
+        <input type="text" name="search" placeholder="Search">
+        <select name="filter">
+            <option value="all">All</option>
+            <option value="brand">Brand</option>
+            <option value="price">Price</option>
+            <option value="scent">Scent</option>
+        </select>
+        <button type="submit">Search</button>
+    </div>
+
+    <!-- Perfume Catalog -->
+    <h2>Start Seeking</h2>
+    <div id="perfume-container" class="perfume-container"></div>
+
+    <footer>
+        <div class="footer-content">
+            <small> 2024 Find Your Perfume. All rights reserved.</small>
+            <small>Designed by Aldi Anika Sanmathi</small>
+        </div>
+    </footer>
+
+    <script>
+        const perfumes = [
+            { name: "Kilian", image: "perfumes/killian.jpg", description: "Love don't be shy", type: "Sweet", price: "$$$" },
+            { name: "YSL", image: "perfumes/black opium.jpg", description: "Black Opium", type: "Spicy", price: "$" },
+            { name: "Dolce & Gabana", image: "perfumes/light blue.jpg", description: "Light Blue", type: "Citrus", price: "$" },
+            { name: "Juliette has a Gun", image: "perfumes/juliette has a gun.jpg", description: "Not a Perfume", type: "Musk", price: "$$" },
+            { name: "Burberry", image: "perfumes/burburry her.jpg", description: "Her", type: "Fruity", price: "$$" },
+            { name: "Maison Margiela (REPLICA)", image: "perfumes/bythefireplaceMAISONMARTIN.jpg", description: "By the Fireplace", type: "Woody", price: "$" },
+            { name: "Carolina Herrera", image: "perfumes/goodgirlblushCAROLINAHERRERA.jpg", description: "Good Girl Blush", type: "Floral", price: "$$" },
+            { name: "Parfums de Marly", image: "perfumes/delinaPARFUMSDEMARLY.jpg", description: "Delina", type: "Floral", price: "$$$" },
+            { name: "Philosphy", image: "perfumes/magnoliaamazinggracePHILOSOPHY.jpg", description: "Amazing Grace Magnolia", type: "Floral", price: "$" },
+            { name: "By / Rosie Jane", image: "perfumes/rosieBYROSIEJANE.jpg", description: "Rosie", type: "Musk", price: "$" },
+            { name: "Maison Margiela (REPLICA)", image: "perfumes/whispersinthelibraryMAISONMARGIELA.jpg", description: "Whispers in the library", type: "Woody", price: "$" },
+            { name: "Dossier", image: "perfumes/woodysandalwoodDOSSIER.jpg", description: "Woody Sandalwood", type: "Woody", price: "$" },
+            { name: "Initio", image: "perfumes/musktherapyINITIO.jpg", description: "Musk Therapy", type: "Woody", price: "$$$" },
+            { name: "Dossier", image: "perfumes/gourmandwhiteflowersDOSSIER.jpg", description: "Gourmand White Flowers", type: "Gourmand", price: "$" },
+            { name: "Zara", image: "perfumes/gourmandaddictZARA.jpg", description: "Gourmand Addict", type: "Gourmand", price: "$" },
+            { name: "Bath & Body Works", image: "perfumes/fruitysherbertscroopB&BW.jpg", description: "Fruity Sherbert Scoop", type: "Fruity", price: "$" },
+            { name: "Sabrina Carpenter", image: "perfumes/sweettoothSABRINACARPENTER.jpg", description: "Sweet Tooth", type: "Sweet", price: "$" },
+            { name: "Tom Ford", image: "perfumes/blackorchidTOMFORD.jpg", description: "Black Orchid", type: "Spicy", price: "$$$" },
+            { name: "YSL", image: "perfumes/MonParisYSL.jpg", description: "Mon Paris", type: "Fruity", price: "$" },
+            { name: "Dossier", image: "perfumes/amberyvanillaDOSSIER.jpg", description: "Ambery Vanilla", type: "Spicy", price: "$" },
+            { name: "Le Monde", image: "perfumes/chaiepiceLEMONDE.jpg", description: "Chai Epice", type: "Gourmand", price: "$" },
+            { name: "Clinque", image: "perfumes/cliniquehappCLINIQUE.jpg", description: "Clinique happy", type: "Citrus", price: "$" },
+            { name: "Fine'ry", image: "perfumes/imamuskFINERY.jpg", description: "I'm a musk", type: "Musk", price: "$" }
+        ];
+
+        const generatePerfumeHTML = perfume => `
+            <div class="perfume-item">
+                <div class="perfume-details">
+                    <img src="${perfume.image}" alt="${perfume.name}">
+                    <h3>${perfume.name}</h3>
+                    <p>${perfume.description}</p>
+                    <p>${perfume.type}</p>
+                    <p>${perfume.price}</p>
+                </div>
+            </div>
+        `;
+
+        const perfumeContainer = document.getElementById('perfume-container');
+
+        perfumes.forEach(perfume => {
+            perfumeContainer.innerHTML += generatePerfumeHTML(perfume);
+        });
+    </script>
+</body>
+
+</html>
